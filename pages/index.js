@@ -37,7 +37,7 @@ const submitForm = async (values) => {
   formData.append('baseName', values.baseName)
   formData.append('collectionDescription', values.collDescription)
   formData.append('email', values.email)
-  axios.post('https://pure-shelf-95376.herokuapp.com', formData, config)
+  axios.post('https://pure-shelf-95376.herokuapp.com/save-file', formData, config)
 }
 
 export default function Home() {
