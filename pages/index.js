@@ -24,7 +24,6 @@ const schema = yup.object().shape({
 });
 
 const submitForm = async (values) => {
-  console.log(values)
   const config = {
     headers: {
       'Content-Type': 'multipart/form-data'
@@ -91,7 +90,7 @@ export default function Home() {
                   md="4"
                   controlId="validationFormik101"
                 >
-                  <Form.Label>Asset File</Form.Label>
+                  <Form.Label>Asset Zip File <a href='/assets.zip' download>Download sample file</a></Form.Label>
                   <Form.Control
                     type="file"
                     required
@@ -110,7 +109,7 @@ export default function Home() {
                   md="4"
                   controlId="validationFormik102"
                 >
-                  <Form.Label>Config File</Form.Label>
+                  <Form.Label>Config File <a href='/config.json' download>Download sample file</a></Form.Label>
                   <Form.Control
                     type="file"
                     required

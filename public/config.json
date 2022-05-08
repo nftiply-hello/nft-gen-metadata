@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "background",
+    "directory": "Background",
+    "required": true,
+    "rarity_weights": null
+  },
+  {
+    "id": 2,
+    "name": "body",
+    "directory": "Body",
+    "required": true,
+    "rarity_weights": null
+  },
+  {
+    "id": 3,
+    "name": "eyes",
+    "directory": "Expressions",
+    "required": false,
+    "rarity_weights": null
+  },
+  {
+    "id": 4,
+    "name": "head_gear",
+    "directory": "Head Gear",
+    "required": false,
+    "rarity_weights": null
+  },
+  {
+    "id": 5,
+    "name": "clothes",
+    "directory": "Shirt",
+    "required": false,
+    "rarity_weights": null
+  },
+  {
+    "id": 6,
+    "name": "held_item",
+    "directory": "Misc",
+    "required": true,
+    "rarity_weights": null
+  },
+  {
+    "id": 7,
+    "name": "hands",
+    "directory": "Hands",
+    "required": true,
+    "rarity_weights": null
+  },
+  {
+    "id": 8,
+    "name": "wristband",
+    "directory": "Wristband",
+    "required": false,
+    "rarity_weights": null
+  }
+]
