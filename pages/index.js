@@ -23,7 +23,7 @@ const schema = yup.object().shape({
   email: yup.string().email().required(),
 });
 
-const submitForm = async (values) => {
+const submitForm = async (values, { setSubmitting, resetForm, setFieldValue }) => {
   const config = {
     headers: {
       'Content-Type': 'multipart/form-data'
@@ -36,7 +36,10 @@ const submitForm = async (values) => {
   formData.append('baseName', values.baseName)
   formData.append('collectionDescription', values.collDescription)
   formData.append('email', values.email)
-  axios.post('https://pure-shelf-95376.herokuapp.com/save-file', formData, config)
+  setSubmitting(true)
+  await axios.post('https://pure-shelf-95376.herokuapp.com/save-file', formData, config)
+  resetForm()
+  setSubmitting(false)
 }
 
 export default function Home() {
@@ -82,6 +85,7 @@ export default function Home() {
             touched,
             isValid,
             errors,
+            isSubmitting
           }) => (
             <Form noValidate onSubmit={handleSubmit}>
               <Row className="mb-3">
@@ -191,7 +195,7 @@ export default function Home() {
                   <Form.Control.Feedback type="invalid">{errors.email}!</Form.Control.Feedback>
                 </Form.Group>
               </Row>
-              <Button type="submit">Submit form</Button>
+              <Button type="submit" disabled={isSubmitting}>Submit form</Button>
             </Form>
           )}
         </Formik>
