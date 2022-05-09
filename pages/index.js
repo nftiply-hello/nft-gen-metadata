@@ -56,9 +56,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h2>
+        <h1>
           THE BEST FREE NFT GENERATOR TOOL
-        </h2>
+        </h1>
 
         <p className={styles.description}>
           Generate massive numbers of NFT with determined rarity – and it’s FREE!
@@ -195,10 +195,54 @@ export default function Home() {
                   <Form.Control.Feedback type="invalid">{errors.email}!</Form.Control.Feedback>
                 </Form.Group>
               </Row>
-              <Button type="submit" disabled={isSubmitting}>Submit form</Button>
+              <Row>
+                <Col md="4"></Col>
+                <Col md="4">
+                  <Button type="submit" disabled={isSubmitting}>START GENERATING YOUR NFT</Button>
+                </Col>
+                <Col md="4"></Col>
+              </Row>
             </Form>
           )}
         </Formik>
+        <br />
+        <br />
+        <br />
+        <h2>
+          What you need to set up:
+        </h2>
+
+        <span>
+          <b>Asset Zip File:</b> Your NFT layers/traits with specific name for each layer/trait (in PNG format) <a href='/assets.zip' download>Download sample file</a>
+        </span>
+        <span>
+          <b>Config File:</b> Appearance frequency for each layer/trait <a href='/config.json' download>Download sample file</a>
+        </span>
+        <span>
+          <b>Avatar amount:</b> Expected number of NFT you want to generate
+        </span>
+        <span>
+          <b>Item base name:</b> Example: Collective#
+        </span>
+        <span>
+          <b>Collection description</b>
+        </span>
+        <span>
+          <b>Email:</b> We will send the output.zip file to this receiver email
+        </span>
+        <br />
+        <br />
+        <br />
+        <h2>
+          What you will receive result in your email:
+        </h2>
+
+        <span>
+          Your NFT images (.PNG) generated from your provided layers
+        </span>
+        <span>
+          Your NFT metadata (.JSON)
+        </span>
       </main>
 
       <footer className={styles.footer}>
@@ -212,6 +256,7 @@ export default function Home() {
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
+        {/* Got question? Contact us! (link to contact form) */}
       </footer>
     </div>
   )
