@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
   }, [])
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darkTheme}>
       <GlobalStyles />
       {isMounted && <Component {...pageProps} />}
     </ThemeProvider>
