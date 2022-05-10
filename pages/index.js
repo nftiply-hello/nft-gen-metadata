@@ -42,6 +42,19 @@ const submitForm = async (values, { setSubmitting, resetForm, setFieldValue }) =
   setSubmitting(false)
 }
 
+const schemaContact = yup.object().shape({
+  email: yup.string().email().required(),
+});
+
+const submitFormContact = async (values, { setSubmitting, resetForm }) => {
+  setSubmitting(true)
+  await axios.post('https://pure-shelf-95376.herokuapp.com/add-contact', {
+    email: values.email
+  })
+  resetForm()
+  setSubmitting(false)
+}
+
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -243,6 +256,51 @@ export default function Home() {
         <span>
           Your NFT metadata (.JSON)
         </span>
+        <br />
+        <br />
+        <h3>
+          Got question? Contact us!
+        </h3>
+
+        <Formik
+          validationSchema={schemaContact}
+          onSubmit={(submitFormContact)}
+          initialValues={{
+            email: '',
+          }}
+        >
+          {({
+            handleSubmit,
+            handleChange,
+            values,
+            isValid,
+            errors,
+            isSubmitting
+          }) => (
+            <Form noValidate onSubmit={handleSubmit}>
+              <Row className="mb-3 align-items-end">
+                <Form.Group
+                  as={Col}
+                  md="8"
+                  controlId="validationFormik201"
+                >
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="email"
+                    value={values.email}
+                    onChange={handleChange}
+                    isInvalid={!!errors.email}
+                  />
+                  <Form.Control.Feedback type="invalid">{errors.email}!</Form.Control.Feedback>
+                </Form.Group>
+                <Col md="4">
+                  <Button type="submit" disabled={isSubmitting}>SEND</Button>
+                </Col>
+              </Row>
+            </Form>
+          )}
+        </Formik>
       </main>
 
       <footer className={styles.footer}>
